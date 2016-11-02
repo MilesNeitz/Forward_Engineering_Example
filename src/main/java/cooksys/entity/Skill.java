@@ -2,11 +2,12 @@ package cooksys.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Skill {
@@ -20,6 +21,7 @@ public class Skill {
 	private String description;
 	
 	@ManyToMany(mappedBy = "skills")
+	@JsonIgnore
 	private List<Student> students;
 
 	public Long getId() {
